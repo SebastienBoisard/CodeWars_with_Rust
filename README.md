@@ -1,2 +1,3 @@
-# CodeWars_with_Rust
-Practice Rust on CodeWars
+# CodeWars with Rust
+
+My Rust training exercises on the CodeWars website.
