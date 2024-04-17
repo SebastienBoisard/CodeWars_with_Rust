@@ -25,7 +25,7 @@
 /// See: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.scan
 
 fn flick_switch(list: &[&str]) -> Vec<bool> {
-    list.iter().scan(true, |state, s| {
+    list.iter().scan(true, |state: &mut bool, s: &&str| {
         if "flick" == *s {
             *state = !*state;
         }
@@ -33,9 +33,9 @@ fn flick_switch(list: &[&str]) -> Vec<bool> {
     }).collect()
 }
 
-fn _flick_switch_v1(list: &[&str]) -> Vec<bool> {
+fn _flick_switch_previous_version(list: &[&str]) -> Vec<bool> {
     let mut res = true;
-    list.iter().map(|s| {
+    list.iter().map(|s: &&str| {
         if "flick" == *s {
             res = !res;
         }
