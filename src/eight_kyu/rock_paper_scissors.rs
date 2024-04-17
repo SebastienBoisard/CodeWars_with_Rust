@@ -1,3 +1,5 @@
+#[allow(dead_code)]
+
 /// # Rock Paper Scissors
 ///
 /// ## Instructions
@@ -22,8 +24,6 @@
 /// See: https://rust-lang.github.io/rfcs/2535-or-patterns.html)
 ///
 
-
-#[allow(dead_code)]
 fn find_winner_at_rock_paper_scissors(p1: &str, p2: &str) -> &'static str  {
     match (p1, p2) {
         ("scissors", "paper") | ("paper", "rock") | ("rock", "scissors") => "Player 1 won!",
