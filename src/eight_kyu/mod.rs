@@ -1,2 +1,10 @@
-pub mod rock_paper_scissors;
-pub mod flick_switch;
+mod rock_paper_scissors;
+mod flick_switch;
+mod well_of_ideas;
+mod even_or_odd;
+mod remove_string_spaces;
+mod grasshopper_summation;
+mod smallest_integer;
+mod string_repeat;
+mod sum_of_positive;
+mod reversed_strings;
