@@ -20,12 +20,16 @@
 /// -
 
 fn square_digits(num: u64) -> u64 {
-    num.to_string().chars().map(|d| d.to_digit(10).unwrap().pow(2).to_string()).collect::<String>().parse::<u64>().unwrap()
+    num.to_string()
+        .chars()
+        .map(|d| d.to_digit(10).unwrap().pow(2).to_string())
+        .collect::<String>()
+        .parse::<u64>()
+        .unwrap()
 }
 
 fn _square_digits_v1(num: u64) -> u64 {
-    num
-        .to_string()
+    num.to_string()
         .chars()
         .map(|i| i.to_digit(10).expect("char isnt digit").pow(2).to_string())
         .collect::<String>()
@@ -51,8 +55,7 @@ mod tests {
     use rand::{thread_rng, Rng};
 
     fn reference_solution(num: u64) -> u64 {
-        num
-            .to_string()
+        num.to_string()
             .chars()
             .map(|s| s.to_digit(10).unwrap())
             .map(|d| d * d)

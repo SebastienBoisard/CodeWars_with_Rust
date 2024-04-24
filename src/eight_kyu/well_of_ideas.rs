@@ -22,7 +22,6 @@
 /// - &&idea : &str instead of idea : &&&str @TODO: find explanation
 /// - _ => () : return nothing as match is an expression
 
-
 fn well(x: &[&str]) -> &'static str {
     let good_counter = x.iter().filter(|&&idea| idea == "good").count();
 
@@ -32,7 +31,6 @@ fn well(x: &[&str]) -> &'static str {
         _ => "I smell a series!",
     }
 }
-
 
 fn _well_previous_version(x: &[&str]) -> &'static str {
     let good_counter = x.iter().fold(
@@ -55,7 +53,10 @@ mod tests {
     fn test_fixed() {
         assert_eq!(well(&["bad", "bad", "bad"]), "Fail!");
         assert_eq!(well(&["good", "bad", "bad", "bad"]), "Publish!");
-        assert_eq!(well(&["good", "bad", "bad", "bad", "bad", "good", "bad", "bad", "good"]), "I smell a series!");
+        assert_eq!(
+            well(&["good", "bad", "bad", "bad", "bad", "good", "bad", "bad", "good"]),
+            "I smell a series!"
+        );
     }
 
     #[test]
@@ -68,7 +69,7 @@ mod tests {
             }
         }
 
-        use rand::{prelude::*, distributions::WeightedIndex};
+        use rand::{distributions::WeightedIndex, prelude::*};
 
         let mut rng = thread_rng();
         let names = ["good", "bad"];

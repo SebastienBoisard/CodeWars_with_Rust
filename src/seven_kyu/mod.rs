@@ -1,10 +1,10 @@
-pub mod mumbling;
-mod two_to_one;
 mod alternate_capitalization;
-mod sum_first_nth_term;
-mod vowel_count;
-mod disemvowel_trolls;
-mod square_every_digit;
-mod highest_and_lowest;
 mod descending_order;
+mod disemvowel_trolls;
 mod exes_and_ohs;
+mod highest_and_lowest;
+pub mod mumbling;
+mod square_every_digit;
+mod sum_first_nth_term;
+mod two_to_one;
+mod vowel_count;

@@ -21,7 +21,6 @@
 ///
 /// -
 
-
 fn high_and_low(numbers: &str) -> String {
     let mut min = i32::MAX;
     let mut max = i32::MIN;
@@ -50,7 +49,11 @@ fn _high_and_low_v1(numbers: &str) -> String {
 
 fn _high_and_low_v2(numbers: &str) -> String {
     let as_ints: Vec<i32> = numbers.split(" ").map(|x| x.parse().unwrap()).collect();
-    format!("{} {}", as_ints.iter().max().unwrap(), as_ints.iter().min().unwrap())
+    format!(
+        "{} {}",
+        as_ints.iter().max().unwrap(),
+        as_ints.iter().min().unwrap()
+    )
 }
 
 fn _high_and_low_v3(numbers: &str) -> String {
@@ -59,8 +62,12 @@ fn _high_and_low_v3(numbers: &str) -> String {
         .split_whitespace()
         .map(|s| s.parse().unwrap())
         .for_each(|x| {
-            if x > max { max = x; }
-            if x < min { min = x; }
+            if x > max {
+                max = x;
+            }
+            if x < min {
+                min = x;
+            }
         });
     format!("{} {}", max, min)
 }

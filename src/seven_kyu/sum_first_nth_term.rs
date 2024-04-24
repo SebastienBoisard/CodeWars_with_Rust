@@ -1,10 +1,12 @@
-
 fn series_sum(n: u32) -> String {
-    format!("{:.2}", (0..n).map(|x| 1.0 / (3 * x + 1) as f32).sum::<f32>())
+    format!(
+        "{:.2}",
+        (0..n).map(|x| 1.0 / (3 * x + 1) as f32).sum::<f32>()
+    )
 }
 
 fn _series_sum_previous_version(n: u32) -> String {
-    let sum :f64 = (0..n).map(|x| 1.0/((x as f64)*3.0+1.0)).sum();
+    let sum: f64 = (0..n).map(|x| 1.0 / ((x as f64) * 3.0 + 1.0)).sum();
     format!("{:1.2}", sum)
 }
 
@@ -17,7 +19,10 @@ mod tests {
 
     fn test(input: u32, expected: &str) {
         let actual = series_sum(input);
-        assert!(actual == expected, "Expected series_sum({input}) to be {expected}, but was {actual}");
+        assert!(
+            actual == expected,
+            "Expected series_sum({input}) to be {expected}, but was {actual}"
+        );
     }
 
     #[test]

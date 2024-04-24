@@ -11,7 +11,11 @@
 /// Nothing.
 
 fn even_or_odd(number: i32) -> &'static str {
-    if number%2 == 0 { "Even"} else { "Odd" }
+    if number % 2 == 0 {
+        "Even"
+    } else {
+        "Odd"
+    }
 }
 
 #[cfg(test)]
@@ -46,34 +50,33 @@ mod tests {
 
         #[test]
         fn test_positive_even() {
-            do_test( 2, "Even");
+            do_test(2, "Even");
             do_test(20, "Even");
         }
 
         #[test]
         fn test_positive_odd() {
-            do_test( 1, "Odd");
+            do_test(1, "Odd");
             do_test(21, "Odd");
         }
 
         #[test]
         fn test_negative_even() {
-            do_test( -2, "Even");
+            do_test(-2, "Even");
             do_test(-20, "Even");
         }
 
         #[test]
         fn test_negative_odd() {
-            do_test( -1, "Odd");
+            do_test(-1, "Odd");
             do_test(-21, "Odd");
         }
     }
 
-
     mod random_tests {
         use super::*;
-        use rand::{thread_rng, Rng};
         use rand::seq::SliceRandom;
+        use rand::{thread_rng, Rng};
 
         // Any code related to random tests (generators, reference solutions) should reside
         // in this module. Again: hygiene.
@@ -81,16 +84,17 @@ mod tests {
         fn generate_cases() -> Vec<(i32, &'static str)> {
             // It's advised to store and re-use the RNG if it will be used often in a loop
             let mut rng = thread_rng();
-            let mut cases: Vec<(i32, &str)> =
-                (0..25).flat_map(|_| {
+            let mut cases: Vec<(i32, &str)> = (0..25)
+                .flat_map(|_| {
                     let b: i32 = rng.gen_range(1..=10_000);
                     [
-                        (b *  2,     "Even"),
-                        (b *  2 + 1, "Odd"),
-                        (b * -2,     "Even"),
-                        (b * -2 - 1, "Odd")
+                        (b * 2, "Even"),
+                        (b * 2 + 1, "Odd"),
+                        (b * -2, "Even"),
+                        (b * -2 - 1, "Odd"),
                     ]
-                }).collect();
+                })
+                .collect();
             // If random case generation produces data that evinces a pattern of some kind (like
             // this one, which produces 4 sequential related cases), shuffling them again is advised.
             cases.shuffle(&mut rng);

@@ -38,7 +38,7 @@ fn _longest_v1(a1: &str, a2: &str) -> String {
 
 fn _longest_v2(a1: &str, a2: &str) -> String {
     ('a'..='z')
-        .filter( |c| (a1.contains(*c) || a2.contains(*c)) )
+        .filter(|c| (a1.contains(*c) || a2.contains(*c)))
         .collect()
 }
 
@@ -64,7 +64,7 @@ mod tests {
 
     fn longest_ue(a1: &str, a2: &str) -> String {
         let joined = a1.to_string() + a2;
-        let mut vector_joined: Vec<char>  = joined.chars().collect();
+        let mut vector_joined: Vec<char> = joined.chars().collect();
         vector_joined.sort_by(|a, b| a.cmp(b));
         vector_joined.dedup();
         vector_joined.iter().cloned().collect::<String>()
@@ -73,18 +73,32 @@ mod tests {
     #[test]
     fn basic_tests() {
         testing("aretheyhere", "yestheyarehere", "aehrsty");
-        testing("loopingisfunbutdangerous", "lessdangerousthancoding", "abcdefghilnoprstu");
-        testing("inmanylanguages", "theresapairoffunctions", "acefghilmnoprstuy");
+        testing(
+            "loopingisfunbutdangerous",
+            "lessdangerousthancoding",
+            "abcdefghilnoprstu",
+        );
+        testing(
+            "inmanylanguages",
+            "theresapairoffunctions",
+            "acefghilmnoprstuy",
+        );
         testing("lordsofthefallen", "gamekult", "adefghklmnorstu");
         testing("codewars", "codewars", "acdeorsw");
-        testing("agenerationmustconfrontthelooming", "codewarrs", "acdefghilmnorstuw");
+        testing(
+            "agenerationmustconfrontthelooming",
+            "codewarrs",
+            "acdefghilmnorstuw",
+        );
     }
 
     extern crate rand;
-    use self::rand::{Rng};
+    use self::rand::Rng;
 
     fn dostr(a: i32) -> String {
-        let s = (0..a).map(|_| (rand::thread_rng().gen_range(97..122) as u8) as char).collect();
+        let s = (0..a)
+            .map(|_| (rand::thread_rng().gen_range(97..122) as u8) as char)
+            .collect();
         s
     }
 
@@ -93,9 +107,9 @@ mod tests {
         let mut rng = rand::thread_rng();
         for _ in 0..100 {
             let a = rng.gen_range(10..20);
-            let a1 =  dostr(a);
+            let a1 = dostr(a);
             let b = rng.gen_range(8..15);
-            let a2 =  dostr(b);
+            let a2 = dostr(b);
             let sol = longest_ue(&a1, &a2);
             testing(&a1, &a2, &sol);
         }

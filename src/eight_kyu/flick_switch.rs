@@ -27,22 +27,26 @@
 /// See: https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.scan
 
 fn flick_switch(list: &[&str]) -> Vec<bool> {
-    list.iter().scan(true, |state: &mut bool, s: &&str| {
-        if "flick" == *s {
-            *state = !*state;
-        }
-        Some(*state)
-    }).collect()
+    list.iter()
+        .scan(true, |state: &mut bool, s: &&str| {
+            if "flick" == *s {
+                *state = !*state;
+            }
+            Some(*state)
+        })
+        .collect()
 }
 
 fn _flick_switch_previous_version(list: &[&str]) -> Vec<bool> {
     let mut res = true;
-    list.iter().map(|s: &&str| {
-        if "flick" == *s {
-            res = !res;
-        }
-        res
-    }).collect()
+    list.iter()
+        .map(|s: &&str| {
+            if "flick" == *s {
+                res = !res;
+            }
+            res
+        })
+        .collect()
 }
 
 #[cfg(test)]
@@ -59,12 +63,24 @@ mod tests {
 
     #[test]
     fn fixed_tests() {
-        test_flick(["codewars", "flick", "code", "wars"], [true, false, false, false]);
-        test_flick(["flick", "11037", "3.14", "53"], [false, false, false, false]);
-        test_flick(["false", "false", "flick", "sheep", "flick"], [true, true, false, false, true]);
+        test_flick(
+            ["codewars", "flick", "code", "wars"],
+            [true, false, false, false],
+        );
+        test_flick(
+            ["flick", "11037", "3.14", "53"],
+            [false, false, false, false],
+        );
+        test_flick(
+            ["false", "false", "flick", "sheep", "flick"],
+            [true, true, false, false, true],
+        );
         test_flick(["bicycle"], [true]);
         test_flick(["john, smith, susan", "flick"], [true, false]);
-        test_flick(["flick", "flick", "flick", "flick", "flick"], [false, true, false, true, false]);
+        test_flick(
+            ["flick", "flick", "flick", "flick", "flick"],
+            [false, true, false, true, false],
+        );
         test_flick([], []);
     }
 }

@@ -17,23 +17,27 @@
 /// -
 
 fn get_count(s: &str) -> usize {
-    s.chars().filter(|&c| c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u').count()
+    s.chars()
+        .filter(|&c| c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+        .count()
 }
 
 fn _get_count_v1(string: &str) -> usize {
-    string.matches(|x| match x {'a'|'e'|'i'|'o'|'u' => true, _ => false}).count()
+    string
+        .matches(|x| match x {
+            'a' | 'e' | 'i' | 'o' | 'u' => true,
+            _ => false,
+        })
+        .count()
 }
 
 fn _get_count_v2(string: &str) -> usize {
-    string
-        .chars()
-        .filter(|&c| "aeiou".contains(c))
-        .count()
+    string.chars().filter(|&c| "aeiou".contains(c)).count()
 }
 
 extern crate rand;
 
-use rand::{Rng, distributions::Distribution};
+use rand::{distributions::Distribution, Rng};
 
 pub struct AlphanumericNonDigit;
 

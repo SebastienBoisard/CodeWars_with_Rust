@@ -17,7 +17,6 @@
 ///
 /// - i32::min()
 
-
 fn find_smallest_int(arr: &[i32]) -> i32 {
     *arr.iter().min().unwrap()
 }
@@ -27,7 +26,8 @@ fn _find_smallest_int_v1(arr: &[i32]) -> i32 {
 }
 
 fn _find_smallest_int_previous_version(arr: &[i32]) -> i32 {
-    arr.iter().fold(99999, |accu, &x| if x < accu { x } else { accu })
+    arr.iter()
+        .fold(99999, |accu, &x| if x < accu { x } else { accu })
 }
 
 extern crate rand;
@@ -46,11 +46,11 @@ fn sample_tests() {
 
 #[test]
 fn more_tests() {
-    assert_eq!(find_smallest_int(&[78,56,232,12,8]), 8);
-    assert_eq!(find_smallest_int(&[78,56,232,12,18]),12);
-    assert_eq!(find_smallest_int(&[78,56,232,412,228]),56);
-    assert_eq!(find_smallest_int(&[78,56,232,12,0]),0);
-    assert_eq!(find_smallest_int(&[-1,56,232,12,8]),-1);
+    assert_eq!(find_smallest_int(&[78, 56, 232, 12, 8]), 8);
+    assert_eq!(find_smallest_int(&[78, 56, 232, 12, 18]), 12);
+    assert_eq!(find_smallest_int(&[78, 56, 232, 412, 228]), 56);
+    assert_eq!(find_smallest_int(&[78, 56, 232, 12, 0]), 0);
+    assert_eq!(find_smallest_int(&[-1, 56, 232, 12, 8]), -1);
 }
 
 #[test]

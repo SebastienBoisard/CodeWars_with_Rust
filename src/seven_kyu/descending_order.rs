@@ -20,11 +20,18 @@
 /// -
 
 fn descending_order(x: u64) -> u64 {
-    let mut list : Vec<u32> = x.to_string().chars().map(|d| d.to_digit(10).unwrap()).collect();
+    let mut list: Vec<u32> = x
+        .to_string()
+        .chars()
+        .map(|d| d.to_digit(10).unwrap())
+        .collect();
     list.sort();
-    list.iter().rev().fold(String::new(), |accu, &d| format!("{accu}{d}")).parse::<u64>().unwrap()
+    list.iter()
+        .rev()
+        .fold(String::new(), |accu, &d| format!("{accu}{d}"))
+        .parse::<u64>()
+        .unwrap()
 }
-
 
 extern crate itertools;
 use itertools::Itertools;

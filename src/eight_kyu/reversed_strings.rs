@@ -28,7 +28,7 @@ mod tests {
     use rand::Rng;
 
     fn sol(phrase: &str) -> String {
-        let mut vec : Vec<char> = phrase.chars().collect();
+        let mut vec: Vec<char> = phrase.chars().collect();
         vec.reverse();
 
         return vec.into_iter().collect();
@@ -44,7 +44,7 @@ mod tests {
 
     #[test]
     fn random_tests() {
-        let chars : Vec<char> = "abcdefghijklmnopqrstuvwxyz".chars().collect();
+        let chars: Vec<char> = "abcdefghijklmnopqrstuvwxyz".chars().collect();
 
         for _i in 0..100 {
             let mut phrase = String::new();
@@ -54,7 +54,7 @@ mod tests {
                 phrase.push(chars[rand::thread_rng().gen_range(0..chars.len())]);
             }
 
-            let phrase : &str = &phrase;
+            let phrase: &str = &phrase;
 
             assert_eq!(solution(phrase), sol(phrase));
         }

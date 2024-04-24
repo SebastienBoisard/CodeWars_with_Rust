@@ -16,7 +16,6 @@
 ///
 /// - &str.repeat(n: int)
 
-
 fn repeat_str(src: &str, count: usize) -> String {
     src.repeat(count)
 }
@@ -25,7 +24,7 @@ fn _repeat_str_previous_version(src: &str, count: usize) -> String {
     src.to_string().repeat(count)
 }
 
-extern {
+extern "C" {
     fn rand() -> isize;
 }
 

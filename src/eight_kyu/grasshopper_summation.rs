@@ -20,7 +20,6 @@
 /// - range expression
 ///   See: https://doc.rust-lang.org/reference/expressions/range-expr.html
 
-
 // O(n)
 fn summation(n: i32) -> i32 {
     (1..=n).sum()
